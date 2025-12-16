@@ -62,24 +62,13 @@ Enables customization of the text shown when displaying the number of linked pro
 
 ### Install via Composer
 
-1. Add the Sutunam Composer repository:
-
-```json
-"repositories": {
-    "sutunam": {
-        "type": "composer",
-        "url": "https://composer.sutunam.com/m2/"
-    }
-}
-```
-
-2. Require the module:
+1. Require the module:
 
 ```bash
 composer require sutunam/linked-product
 ```
 
-3. Enable and upgrade the module:
+2. Enable and upgrade the module:
 
 ```bash
 bin/magento module:enable Sutunam_LinkedProduct
@@ -87,7 +76,7 @@ bin/magento setup:upgrade
 bin/magento cache:flush
 ```
 
-4. For production mode:
+3. For production mode:
 
 ```bash
 bin/magento setup:di:compile
@@ -97,6 +86,11 @@ bin/magento setup:static-content:deploy -f
 ---
 
 ## 📝 Changelog
+
+### 1.0.2
+
+* Using the Gitlab CI from the Sutunam Base module instead.
+* Update license.
 
 ### 1.0.1
 
@@ -114,3 +108,9 @@ bin/magento setup:static-content:deploy -f
 * Features explained in simple language.
 * Tables used for configuration settings and mapping.
 * Easy-to-follow installation instructions.
+
+## Development by Sutunam
+
+We are an Open Source Software Development Company, specialized in Magento 2 and [Hyva Silver Partner](https://en.sutunam.vn/solutions/hyva-specialists-magento-experts/)
+
+[Contact us](https://en.sutunam.vn/contact/)
