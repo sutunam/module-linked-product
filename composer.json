@@ -2,7 +2,7 @@
     "name": "sutunam/module-linked-product",
     "description": "Sutunam Linked Product Module",
     "type": "magento2-module",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "require": {
         "magento/framework": "*",
         "magento/module-related-product-graph-ql": "*",
@@ -28,8 +28,7 @@
     },
     "config": {
         "allow-plugins": {
-            "phpstan/extension-installer": true,
-            "magento/composer-dependency-version-audit-plugin": false
+            "magento/composer-dependency-version-audit-plugin": true
         }
     }
 }

@@ -1,59 +1,25 @@
-.action.disabled {
-    box-shadow: none;
-    cursor: default;
-    pointer-events: none;
-}
+@gray_400: #9ca3af;
+@gray_600: #4b5563;
+@pink_600: #db2777;
 
-.border {
-    border: 1px solid;
-}
-
-.border-transparent {
-    border-color: transparent;
-}
-
-.border-gray-600 {
-    border-color: #4b5563;
-}
-
-.text-gray-600 {
-    color: #4b5563;
-}
-
-.text-gray-400 {
-    color: #9ca3af;
-}
-
-.products-linked {
-    .item.product.product-item {
-        margin-right: 3%;
-    }
-}
 .linked-product-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin: 0 10px;
+
     .product-item {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
 
-        .product-item-info {
-            background: #fff;
-            border-radius: 6px;
-            overflow: hidden;
-            padding: 10px;
-            text-align: center;
-            &.border {
-                border: 1px solid #ccc;
-            }
+        .product-image {
+            border: 1px solid;
+            border-color: transparent;
 
-            &.border-transparent {
-                border-color: transparent;
-            }
-
-            &.border-gray-600 {
-                border-color: #4b5563;
+            &--active {
+                border-color: @gray_600;
+                cursor: default;
+                pointer-events: none;
             }
         }
 
@@ -62,62 +28,28 @@
             flex-direction: column;
             margin-top: 10px;
 
-            .attribute-option {
+            .product-attribute {
+                align-items: center;
                 display: flex;
-                width: 100%;
-                margin-right: auto;
-                gap: 4px; // giống gap-x-1 (1 * 0.25rem)
                 font-size: 12px;
+                gap: 4px;
                 text-transform: capitalize;
-                color: @text__color__muted; // màu xám của Luma
-                overflow-x: hidden;
-                transition: all 0.3s ease;
+                width: 100%;
 
-                .color-label {
-                    width: 100%;
-                }
-
-                .bg-tertiary-1 {
-                    display: inline-block;
-                    width: 8px;
-                    height: 8px;
-                    background-color: #b83958;
+                .product-saleable {
+                    background-color: @pink_600;
                     border-radius: 50%;
-                    margin-right: 4px;
-                    vertical-align: middle;
+                    height: 8px;
+                    width: 8px;
                 }
 
-                &:hover {
-                    color: @text__color__muted;
-                }
+                .product-attribute-text {
+                    color: @gray_600;
 
-                .product-attribute-value {
-                    display: inline-block;
-                    width: 100%;
-                    font-size: 12px;
-                    color: @text__color;
-                    text-transform: capitalize;
-                    transition: all 0.3s ease;
-
-                    &--disabled {
-                        color: @text__color__muted;
+                    &--disable {
+                        color: @gray_400;
                     }
                 }
-            }
-            .mt-auto {
-                margin-top: auto;
-            }
-
-            .text-xs {
-                font-size: 12px;
-            }
-
-            .text-gray-600 {
-                color: #4b5563;
-            }
-
-            .text-gray-400 {
-                color: #9ca3af;
             }
         }
     }

@@ -21,6 +21,6 @@ class Attributes extends AbstractFieldArray
         $this->addColumn('singular', ['label' => __('Singular'), 'class' => 'required-entry']);
         $this->addColumn('plural', ['label' => __('Plural'), 'class' => 'required-entry']);
         $this->_addAfter = false;
-        $this->_addButtonLabel = __('Add');
+        $this->_addButtonLabel = __('Add')->render();
     }
 }

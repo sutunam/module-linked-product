@@ -31,7 +31,7 @@ class AddCustomProductLinkType implements DataPatchInterface
     /**
      * @inheritdoc
      */
-    public function apply(): void
+    public function apply()
     {
         $this->moduleDataSetup->getConnection()->insertOnDuplicate(
             $this->moduleDataSetup->getTable('catalog_product_link_type'),
@@ -54,6 +54,8 @@ class AddCustomProductLinkType implements DataPatchInterface
                 'data_type' => 'int'
             ]
         );
+
+        return $this;
     }
 
     /**

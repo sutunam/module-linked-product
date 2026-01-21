@@ -13,6 +13,9 @@ use Magento\Store\Model\ScopeInterface;
 
 class Config extends AbstractHelper
 {
+    // Flag to identify if linked products are loaded
+    public const FLAG_IS_LOADED_LINKED_PRODUCTS = 'is_loaded_linked_products';
+
     // phpcs:disable
     private const GENERAL_ENABLE = 'linked_product/general/enable';
     private const GENERAL_SHOW_ATTRIBUTE_TEXT = 'linked_product/general/show_attribute_text';

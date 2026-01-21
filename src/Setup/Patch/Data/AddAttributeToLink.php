@@ -43,7 +43,7 @@ class AddAttributeToLink implements DataPatchInterface
     /**
      * @inheritdoc
      */
-    public function apply(): void
+    public function apply()
     {
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
@@ -80,6 +80,8 @@ class AddAttributeToLink implements DataPatchInterface
             $eavSetup->getDefaultAttributeGroupId(Product::ENTITY),
             $eavSetup->getAttributeId(Product::ENTITY, 'attribute_to_link')
         );
+
+        return $this;
     }
 
     /**

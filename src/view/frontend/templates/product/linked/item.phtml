@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Framework\Escaper;
-use Magento\Framework\View\Element\Template;
 use Sutunam\LinkedProduct\Model\Config as ConfigData;
 
 // phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
@@ -17,7 +16,6 @@ use Sutunam\LinkedProduct\Model\Config as ConfigData;
 
 /** @var AbstractProduct $block */
 /** @var Escaper $escaper */
-
 
 /** @var ConfigData $configData */
 $configData = $this->helper(ConfigData::class);
@@ -46,10 +44,10 @@ $imageCustomAttributes = $product->getData('image_custom_attributes')
     ?? $block->getData('image_custom_attributes')
     ?? [];
 ?>
-<div id="product-linked-item_<?= /* @noEscape */ $product->getId() ?>"
-     class="product-item">
-    <a href="<?= $block->escapeUrl($block->getProductUrl($product)) ?>"
-       class="action photo border <?= !$isFirstProduct ? ' border-transparent' : ' border-gray-600 disabled' ?>"
+<div id="product-linked-item_<?= /* @noEscape */ $product->getId() ?>" class="product-item">
+    <a
+        href="<?= $escaper->escapeUrl($block->getProductUrl($product)) ?>"
+        class="product-image <?= $isFirstProduct ? 'product-image--active' : '' ?>"
     >
         <?= $block->getImage($product, $imageDisplayArea)
             ->setTemplate('Sutunam_LinkedProduct::product/linked/image.phtml')
@@ -57,29 +55,17 @@ $imageCustomAttributes = $product->getData('image_custom_attributes')
             ->setProductId($product->getId())
             ->toHtml(); ?>
     </a>
-    <div class="product-info flex flex-col grow w-full">
-        <div class="mt-auto pt-2 flex flex-wrap justify-center items-center">
-            <?php $textClass = $isFirstProduct ? 'text-gray-600' : 'text-gray-400' ?>
-            <div class="transition-all duration-300 w-auto justify-center text-xs mr-auto attribute-option
-            <?= $escaper->escapeHtmlAttr($textClass) ?>">
-                <?php if (!$product->getIsSalable()): ?>
-                    <span class="bg-tertiary-1"></span>
-                <?php endif; ?>
+    <div class="product-info">
+        <div class="product-attribute">
+            <?php if (!$product->getIsSalable()): ?>
+                <span class="product-saleable"></span>
+            <?php endif; ?>
 
-                <?php if ($product->getIsSalable()): ?>
-                    <?php if ($showAttributeText): ?>
-                        <span class="product-attribute-value">
-                            <?= $escaper->escapeHtml($product->getAttributeText($attributeToLink)) ?>
-                        </span>
-                    <?php endif; ?>
-                <?php else: ?>
-                    <?php if ($showAttributeText): ?>
-                        <span class="product-attribute-value product-attribute-value--disabled">
-                            <?= $escaper->escapeHtml($product->getAttributeText($attributeToLink)) ?>
-                        </span>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </div>
+            <?php if ($showAttributeText): ?>
+                <span class="product-attribute-text <?= !$product->getIsSalable() ? 'product-attribute-text--disable' : '' ?>">
+                    <?= $escaper->escapeHtml($product->getAttributeText($attributeToLink)) ?>
+                </span>
+            <?php endif; ?>
         </div>
     </div>
 </div>

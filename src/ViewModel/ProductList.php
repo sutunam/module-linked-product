@@ -282,7 +282,7 @@ class ProductList implements ArgumentInterface
 
         $product = $this->getProduct();
         if ($product && $product->getId()) {
-            $collection->addExcludeProductFilter($product->getId());
+            $collection->addExcludeProductFilter([$product->getId()]);
         }
 
         $this->applyCriteria($this->searchCriteriaBuilder->create(), $collection);

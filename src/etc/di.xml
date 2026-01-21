@@ -25,4 +25,8 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Collection">
+        <plugin name="sutunam_linked_product_plugin_model_resource_model_product_collection"
+                type="Sutunam\LinkedProduct\Plugin\Magento\Catalog\Model\ResourceModel\Product\CollectionPlugin"/>
+    </type>
 </config>
